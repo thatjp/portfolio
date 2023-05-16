@@ -6,17 +6,26 @@ import Section from "../components/ui/section/Section"
 import Seo from "../components/seo"
 import Title from "../components/ui/Title/Title"
 import BodyText from "../components/ui/BodyText/BodyText"
-import * as styles from "../components/index.module.css"
+// import * as styles from "../components/index.module.css"
 
 const IndexPage = () => {
   return (
     <Layout>
       <InView>
         {({ inView, ref, entry }) => {
-          console.log("entry", entry)
           return (
             <>
-              <section>
+              <section className="h-screen w-full grid grid-cols-3 content-center">
+                <div className="text-center">
+                  <Title size="h1" text="header 1" />
+                  <BodyText text="buncha things" />
+                </div>
+              </section>
+              <section className="h-screen w-full grid grid-cols-3 content-center">
+                <Title size="h1" text="header 1" />
+                <BodyText text="buncha things" />
+              </section>
+              <section className="h-screen w-full grid grid-cols-3 content-center">
                 <Title size="h1" text="header 1" />
                 <BodyText text="buncha things" />
               </section>

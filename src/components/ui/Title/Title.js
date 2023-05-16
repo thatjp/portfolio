@@ -1,5 +1,5 @@
 import React from "react"
-import * as styles from './title.module.css'
+import * as styles from "./title.module.css"
 
 const Title = ({ text, size, decorator, className }) => {
   console.log("text", text)
