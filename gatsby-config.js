@@ -14,6 +14,9 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://jpharris.io`,
   },
+  flags: {
+    DEV_SSR: true
+  },
   plugins: [
     `gatsby-plugin-image`,
     {
