@@ -6,13 +6,11 @@ import Section from "../components/ui/section/Section"
 import Seo from "../components/seo"
 import Title from "../components/ui/Title/Title"
 import BodyText from "../components/ui/BodyText/BodyText"
-// import * as styles from "../components/index.module.css"
 
 const IndexPage = () => {
   return (
     <Layout>
-      <h1>test</h1>
-      {/* <InView>
+      <InView>
         {({ inView, ref, entry }) => {
           return (
             <>
@@ -33,7 +31,7 @@ const IndexPage = () => {
             </>
           )
         }}
-      </InView> */}
+      </InView>
     </Layout>
   )
 }
