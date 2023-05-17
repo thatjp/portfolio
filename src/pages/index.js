@@ -11,7 +11,8 @@ import BodyText from "../components/ui/BodyText/BodyText"
 const IndexPage = () => {
   return (
     <Layout>
-      <InView>
+      <h1>test</h1>
+      {/* <InView>
         {({ inView, ref, entry }) => {
           return (
             <>
@@ -32,7 +33,7 @@ const IndexPage = () => {
             </>
           )
         }}
-      </InView>
+      </InView> */}
     </Layout>
   )
 }
