@@ -27,6 +27,7 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         url: process.env.WPGRAPHQL_URL || `http://jpportfolio.local/graphql`,
+        verbose: true,
         auth: {
           htaccess: {
             username: process.env.HTTPBASICAUTH_USERNAME,
