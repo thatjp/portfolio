@@ -10,7 +10,13 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Navigation from "../ui/Navigation/Navigation"
 
-import * as styles from "./layout.css"
+import {
+  container,
+  heading,
+  navLinks,
+  navLinkItem,
+  navLinkText
+} from './layout.module.css'
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -24,7 +30,7 @@ const Layout = ({ pageTitle, children }) => {
   `)
 
   return (
-    <div>
+    <div className={container}>
       <main>
         <Navigation />
         <h1>{pageTitle}</h1>
