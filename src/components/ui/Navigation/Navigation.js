@@ -11,6 +11,9 @@ const Navigation = () => {
         <li>
           <Link to="/hello-world">Sample Page</Link>
         </li>
+        <li>
+          <Link to="/about">about</Link>
+        </li>
       </ul>
     </nav>
   )

@@ -9,7 +9,6 @@ const WpPost = ({
     wpPost: { title, content, id, author, projectDescription },
   },
 }) => {
-
   return (
     <Layout>
       <div className={`post-${id}`}>

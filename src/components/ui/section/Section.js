@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 
+
 const Section = ({ id, children, onInView }) => {
   const { ref: sectionRef, inView, entry } = useInView({
     onChange: (inView, entry) => {},
