@@ -7,7 +7,7 @@
 
 import * as React from "react"
 
-import Navigation from "../ui/navigation/Navigation"
+import Navigation from "../ui/Navigation/Navigation"
 
 import {
   container,

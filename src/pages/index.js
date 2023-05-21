@@ -4,7 +4,7 @@ import { InView } from "react-intersection-observer"
 import Layout from "../components/layouts/Layout"
 import Seo from "../components/seo"
 import Title from "../components/ui/Title/Title"
-import BodyText from "../components/ui/bodyText/BodyText"
+import BodyText from "../components/ui/BodyText/BodyText"
 
 const IndexPage = () => {
   return (
