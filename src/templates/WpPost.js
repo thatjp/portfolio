@@ -14,7 +14,6 @@ const WpPost = ({
       <div className={`post-${id}`}>
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content }} />
-        <h3>{projectDescription.projectDescription}</h3>
         <AuthorBio author={author.node}/>
       </div>
     </Layout>
