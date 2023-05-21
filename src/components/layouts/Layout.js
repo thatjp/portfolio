@@ -9,14 +9,10 @@ import * as React from "react"
 
 import Navigation from "../ui/Navigation/Navigation"
 
-import {
-  container,
-} from './layout.module.css'
-
 const Layout = ({ pageTitle, children }) => {
 
   return (
-    <div className={container}>
+    <div>
       <main>
         <Navigation />
         <h1>{pageTitle}</h1>
