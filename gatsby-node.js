@@ -17,6 +17,24 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           uri
         }
       }
+      allWpProject {
+        nodes {
+          id
+          uri
+        }
+      }
+      allWpPosition {
+        nodes {
+          id
+          uri
+        }
+      }
+      allWpSketch {
+        nodes {
+          id
+          uri
+        }
+      }
       allWpPage {
         nodes {
           id

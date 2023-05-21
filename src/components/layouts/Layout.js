@@ -8,7 +8,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Navigation from "../ui/Navigation/Navigation"
+import Navigation from "../ui/navigation/Navigation"
 
 import {
   container,

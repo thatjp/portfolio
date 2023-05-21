@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 const Navigation = () => {
   return (
-    <nav className="flex justify-center">
+    <nav className="flex justify-cente">
       <ul className='flex items-center space-x-6'>
         <li>
           <Link to="/">Home</Link>
@@ -12,7 +12,7 @@ const Navigation = () => {
           <Link to="/hello-world">Sample Page</Link>
         </li>
         <li>
-          <Link to="/about">about</Link>
+          <Link to="/about">About</Link>
         </li>
       </ul>
     </nav>

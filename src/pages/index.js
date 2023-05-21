@@ -5,7 +5,7 @@ import Layout from "../components/layouts/Layout"
 import Section from "../components/ui/section/Section"
 import Seo from "../components/seo"
 import Title from "../components/ui/Title/Title"
-import BodyText from "../components/ui/BodyText/BodyText"
+import BodyText from "../components/ui/bodyText/BodyText"
 
 const IndexPage = () => {
   return (

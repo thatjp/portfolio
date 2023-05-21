@@ -27,9 +27,6 @@ export const query = graphql`
       id
       title
       content
-      projectDescription {
-        projectDescription
-      }
       author {
         node {
           ...AuthorBio
