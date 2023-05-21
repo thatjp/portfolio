@@ -1,9 +1,7 @@
 import React from "react"
 
 const Title = ({ text, size, decorator, className }) => {
-  console.log("text", text)
   const renderHeader = (size, text, decorator, className) => {
-    console.log("size", size)
     switch (size) {
       case "h1":
         return (

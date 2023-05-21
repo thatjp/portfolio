@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import AuthorBio from '../components/ui/authorBio/AuthorBio'
 import Layout from "../components/layouts/Layout"
 
 const WpPage = ({data: {

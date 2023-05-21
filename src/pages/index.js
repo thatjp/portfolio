@@ -2,7 +2,6 @@ import * as React from "react"
 import { InView } from "react-intersection-observer"
 
 import Layout from "../components/layouts/Layout"
-import Section from "../components/ui/section/Section"
 import Seo from "../components/seo"
 import Title from "../components/ui/Title/Title"
 import BodyText from "../components/ui/bodyText/BodyText"
