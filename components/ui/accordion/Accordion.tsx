@@ -8,6 +8,7 @@ import {
   useId,
   useRef,
   useState,
+  type CSSProperties,
   type ReactNode,
 } from "react";
 
@@ -69,6 +70,8 @@ type AccordionItemProps = {
   trigger: ReactNode;
   children: ReactNode;
   defaultOpen?: boolean;
+  className?: string;
+  style?: CSSProperties;
 };
 
 export function AccordionItem({
@@ -76,6 +79,8 @@ export function AccordionItem({
   trigger,
   children,
   defaultOpen = false,
+  className = "",
+  style,
 }: AccordionItemProps) {
   const ctx = useContext(AccordionContext);
   const uid = useId();
@@ -100,7 +105,7 @@ export function AccordionItem({
   };
 
   return (
-    <div className="py-4 first:pt-0">
+    <div className={`py-4 first:pt-0 ${className}`.trim()} style={style}>
       <h3 className="text-base font-normal leading-snug">
         <button
           id={buttonId}

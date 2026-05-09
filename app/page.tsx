@@ -1,12 +1,6 @@
 import { ContactFooter } from "@/components/ContactFooter";
-import { ExperienceList } from "@/components/ExperienceList";
+import { ExperienceTabs } from "@/components/ExperienceTabs";
 import { HomeHero } from "@/components/Hero";
-import {
-  Tab,
-  TabList,
-  TabPanel,
-  Tabs,
-} from "@/components/ui/tabs/Tabs";
 import { InterestChips } from "@/components/InterestChips";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
@@ -43,24 +37,10 @@ export default function Home() {
         </Section>
 
         <Section id="experience" title="Experience">
-          <Tabs defaultValue="professional">
-            <TabList aria-label="Experience type">
-              <Tab value="professional">Professional roles</Tab>
-              <Tab value="freelance">Freelance</Tab>
-            </TabList>
-            <TabPanel value="professional">
-              <ExperienceList
-                items={professionalExperience}
-                itemIdPrefix="professional"
-              />
-            </TabPanel>
-            <TabPanel value="freelance">
-              <ExperienceList
-                items={freelanceExperience}
-                itemIdPrefix="freelance"
-              />
-            </TabPanel>
-          </Tabs>
+          <ExperienceTabs
+            professional={professionalExperience}
+            freelance={freelanceExperience}
+          />
         </Section>
 
         <Section id="projects" title="Projects">

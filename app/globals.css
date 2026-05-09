@@ -58,3 +58,46 @@ body {
     }
   }
 }
+
+/* Experience tabs: exit uses the same keyframes as enter with `animation-direction:
+   reverse` so motion is an exact mirror. Exit stagger is bottom→top (see ExperienceList).
+   Durations should match `lib/experience-animation.ts`. */
+@keyframes experience-list-item-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.experience-accordion--exiting .experience-accordion-item {
+  animation-name: experience-list-item-enter;
+  animation-direction: reverse;
+  animation-duration: 480ms;
+  animation-timing-function: cubic-bezier(0.22, 0.85, 0.29, 1);
+  animation-fill-mode: forwards;
+}
+
+.experience-accordion--entering .experience-accordion-item {
+  animation-name: experience-list-item-enter;
+  animation-duration: 480ms;
+  animation-timing-function: cubic-bezier(0.22, 0.85, 0.29, 1);
+  animation-fill-mode: both;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-accordion--exiting .experience-accordion-item,
+  .experience-accordion--entering .experience-accordion-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .experience-tab-indicator {
+    transition: none !important;
+  }
+}

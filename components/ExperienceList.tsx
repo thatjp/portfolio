@@ -3,20 +3,34 @@ import {
   Accordion,
   AccordionItem,
 } from "@/components/ui/accordion/Accordion";
+import {
+  EXPERIENCE_ANIM,
+  type ExperienceListPhase,
+} from "@/lib/experience-animation";
 import type { ExperienceItem } from "@/lib/portfolio";
 
 type ExperienceListProps = {
   items: ExperienceItem[];
   /** Keeps accordion button ids unique when multiple lists exist (e.g. tabs). */
   itemIdPrefix?: string;
+  /** When controlled by animated tabs, drives list enter/exit keyframes. */
+  listPhase?: ExperienceListPhase;
 };
 
 export function ExperienceList({
   items,
   itemIdPrefix = "exp",
+  listPhase = "idle",
 }: ExperienceListProps) {
+  const accordionClass =
+    listPhase === "exiting"
+      ? "experience-accordion--exiting"
+      : listPhase === "entering"
+        ? "experience-accordion--entering"
+        : "";
+
   return (
-    <Accordion>
+    <Accordion className={accordionClass}>
       {items.map((job, index) => {
         const primaryIsCompany = job.freelance === true;
         const primaryLabel = primaryIsCompany ? job.company : job.role;
@@ -25,10 +39,23 @@ export function ExperienceList({
           primaryIsCompany && job.company && job.companyUrl;
         const showPeriodRow = job.company || primaryIsCompany;
 
+        const staggerDelayMs =
+          listPhase === "exiting"
+            ? (items.length - 1 - index) * EXPERIENCE_ANIM.exitStaggerMs
+            : listPhase === "entering"
+              ? index * EXPERIENCE_ANIM.enterStaggerMs
+              : undefined;
+
         return (
         <AccordionItem
           key={`${job.role}-${job.period}`}
           itemId={`${itemIdPrefix}-${index}`}
+          className="experience-accordion-item"
+          style={
+            staggerDelayMs != null
+              ? { animationDelay: `${staggerDelayMs}ms` }
+              : undefined
+          }
           trigger={
             <span className="flex w-full min-w-0 flex-col gap-1">
               <span className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">

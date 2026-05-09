@@ -152,10 +152,10 @@ export const projects: ProjectItem[] = [
 ];
 
 export const interests: string[] = [
-  "Typography and readable layouts",
-  "Indie web and open standards",
-  "Trail running and film photography",
-  "Cooking and weekend bread experiments",
+  "Touchdesigner and Creative Coding",
+  "Indie web and AI powered projects",
+  "Running and film photography",
+  "Billiards of all kinds",
 ];
 
 export const navItems = [
