@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SectionHeading } from "@/components/SectionHeading";
 
 type SectionProps = {
   id?: string;
@@ -14,12 +15,7 @@ export function Section({ id, title, children, className = "" }: SectionProps) {
       className={`scroll-mt-20 border-t border-zinc-200 pt-12 first-of-type:border-t-0 first-of-type:pt-0 dark:border-zinc-800 ${className}`}
       aria-labelledby={id ? `${id}-heading` : undefined}
     >
-      <h2
-        id={id ? `${id}-heading` : undefined}
-        className="mb-6 text-sm font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400"
-      >
-        {title}
-      </h2>
+      <SectionHeading id={id ? `${id}-heading` : undefined} title={title} />
       {children}
     </section>
   );
