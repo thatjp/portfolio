@@ -107,7 +107,7 @@ export const experience: ExperienceItem[] = [
     freelance: true,
     company: "Duet",
     companyUrl: "https://joinduet.com/",
-    role: "Freelance — backend & React",
+    role: "Fullstack Developer Python and React",
     period: "2024 – 2025",
     summary:
       "Built the backend in Python and Django for Duet and some React and TypeScript components. Worked closely with Duet's data team to ensure data aggregation and delivery processes were done correctly and HIPAA compliant.",
@@ -115,7 +115,7 @@ export const experience: ExperienceItem[] = [
   {
     freelance: true,
     company: "LumiSync",
-    role: "Freelance — frontend",
+    role: "React Developer",
     period: "2023",
     summary:
       "Rebuilt the state management system to vastly improve code legibility, application scalability and speed.",
@@ -123,7 +123,7 @@ export const experience: ExperienceItem[] = [
   {
     freelance: true,
     company: "Atlas Seed",
-    role: "Freelance — Shopify app",
+    role: "Node.js Developer",
     period: "2023",
     summary:
       "Developed a Node.js based Shopify App that would help Atlas Seed keep better track of inventory. The solution allowed the Atlas team to sell at farmers markets all the way through to bulk international buyers.",
@@ -144,7 +144,7 @@ export const projects: ProjectItem[] = [
   {
     title: "Top Table",
     description:
-      "A dashboard for tracking team goals with role-based views, exports, and real-time summaries.",
+      "A platform for billiards players to track their stats and find new players to play with.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma", "Node.js", "Express"],
     href: "https://top-table-c95d5672a4bb.herokuapp.com/",
     // repo: "https://github.com/yourusername/project-atlas",
