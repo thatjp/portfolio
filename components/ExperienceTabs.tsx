@@ -182,7 +182,7 @@ export function ExperienceTabs({
   const items = itemsForTab(displayTab, professional, freelance);
 
   const tabButtonClass = (tab: TabKey) =>
-    `-mb-px border-b-2 border-transparent px-3 py-2 text-sm font-medium transition-colors ${
+    `-mb-px border-b-2 border-transparent py-2 pr-6 pl-0 text-left text-sm font-medium transition-colors last:pr-0 ${
       activeTab === tab
         ? "text-zinc-900 dark:text-zinc-100"
         : "text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200"
@@ -196,7 +196,7 @@ export function ExperienceTabs({
         aria-label="Experience type"
         aria-busy={!reducedMotion && phase !== "idle"}
         onKeyDown={onKeyDown}
-        className="relative flex gap-1 border-b border-zinc-200 dark:border-zinc-800"
+        className="relative flex justify-start gap-0 border-b border-zinc-200 dark:border-zinc-800"
       >
         <button
           ref={proRef}
@@ -222,7 +222,7 @@ export function ExperienceTabs({
           className={tabButtonClass("freelance")}
           onClick={() => selectTab("freelance")}
         >
-          Freelance
+          Contract Roles
         </button>
         <span
           aria-hidden

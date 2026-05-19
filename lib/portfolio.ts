@@ -7,15 +7,12 @@ export type SocialLinks = {
 
 export type ExperienceItem = {
   company?: string;
-  /** Public site for the employer or client; company name links when set. */
   companyUrl?: string;
   role: string;
   period: string;
   summary?: string;
   highlights?: string[];
-  /** Short labels shown as pills (skills, stack, engagement type). */
   tags?: string[];
-  /** When true, listed under the Freelance tab (use with `company` for client name). */
   freelance?: boolean;
 };
 
@@ -35,23 +32,22 @@ export const siteMeta = {
     "Portfolio of Jordan Park — web developer focused on modern front ends, solid UX, and maintainable code.",
   social: {
     github: "https://github.com/yourusername",
-    linkedin: "https://www.linkedin.com/in/yourusername",
+    linkedin: "https://www.linkedin.com/in/jp-harris",
     email: "mailto:hello@example.com",
     resume: "/JP_Harris_Resume_2025.pdf",
   } satisfies SocialLinks,
 };
 
-export const aboutParagraphs: string[] = [
-  "I am a web developer who enjoys turning complex problems into clear, usable experiences. I care about performance, accessibility, and code that teammates can pick up without pain.",
-  "Outside of client work, I like exploring new CSS and JavaScript APIs, refining design systems, and shipping small tools that make day-to-day work smoother.",
-];
+// export const aboutParagraphs: string[] = [
+//   "I turn tangled requirements into interfaces people actually enjoy using."
+// ];
 
 export const experience: ExperienceItem[] = [
   {
     company: "Waters Corporation",
     companyUrl: "https://www.waters.com",
     role: "Lead Frontend Web Developer",
-    period: "July 2025 – Present",
+    period: "July 2025 – Dec 2025",
     highlights: [
       "Designed and built a React.js and Typescript frontend for an AI powered chat tool which fields the questions of the 350,000 monthly Waters.com users.",
       "Lead a talented cross departmental team of 5 while maintaining strong communication with other teams in the engineering department resulting in the smooth and timely delivery of milestones.",
@@ -105,12 +101,21 @@ export const experience: ExperienceItem[] = [
   },
   {
     freelance: true,
+    company: "Vermont Mutual",
+    companyUrl: "https://www.vermontmutual.com/",
+    role: "React Developer",
+    period: "2026",
+    summary:
+      "Built React.js components and UI that addressed business requirements and updated Vermont Mutual’s internal frontend tools.",
+  },
+  {
+    freelance: true,
     company: "Duet",
     companyUrl: "https://joinduet.com/",
     role: "Fullstack Developer Python and React",
     period: "2024 – 2025",
     summary:
-      "Built the backend in Python and Django for Duet and some React and TypeScript components. Worked closely with Duet's data team to ensure data aggregation and delivery processes were done correctly and HIPAA compliant.",
+      "Built a  Python and Django backend that communicated with Google Cloud Platform for Duet. I also built Next.js, Typescript components. Worked closely with Duet’s data team to ensure data aggregation and delivery processes were done correctly and HIPAA compliant. ",
   },
   {
     freelance: true,
@@ -118,7 +123,7 @@ export const experience: ExperienceItem[] = [
     role: "React Developer",
     period: "2023",
     summary:
-      "Rebuilt the state management system to vastly improve code legibility, application scalability and speed.",
+      "Rebuilt the Redux state management system to vastly improve code legibility, application scalability and speed. Built and refactored large Next.js and components, worked with the design team to create a maintainable component library.",
   },
   {
     freelance: true,
@@ -154,12 +159,15 @@ export const projects: ProjectItem[] = [
 export const interests: string[] = [
   "Touchdesigner and Creative Coding",
   "Indie web and AI powered projects",
-  "Running and film photography",
+  "Running",
+  "Film photography",
+  "Kitesurfing",
+  "Snowboarding",
   "Billiards of all kinds",
 ];
 
 export const navItems = [
-  { href: "#about", label: "About" },
+  // { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#interests", label: "Interests" },

@@ -43,13 +43,26 @@ export function ContactFooter({ name, social }: ContactFooterProps) {
   return (
     <footer
       id="contact"
-      className="scroll-mt-20 border-t border-zinc-200 pt-12 dark:border-zinc-800"
+      className="scroll-mt-20 border-t border-zinc-200 py-14 dark:border-zinc-800"
       aria-labelledby="contact-heading"
     >
       <SectionHeading id="contact-heading" title="Contact" />
       <p className="mb-6 text-zinc-700 dark:text-zinc-300">
-        Open to interesting roles and collaborations. Reach out via email or
-        LinkedIn.
+        I&apos;m open to connecting and collaborating! Reach out via email:{" "}
+        jpharris.development@gmail.com or{" "}
+        {social.linkedin ? (
+          <a
+            href={social.linkedin}
+            className="text-zinc-900 underline-offset-4 hover:underline dark:text-zinc-100"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+        ) : (
+          "LinkedIn"
+        )}
+        .
       </p>
       <ul className="flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap sm:gap-x-6">
         {links.map((link) => (

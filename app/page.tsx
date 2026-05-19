@@ -6,7 +6,6 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
-  aboutParagraphs,
   freelanceExperience,
   interests,
   professionalExperience,
@@ -28,13 +27,13 @@ export default function Home() {
           tagline={siteMeta.tagline}
         />
 
-        <Section id="about" title="About">
+        {/* <Section id="about" title="About">
           <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
             {aboutParagraphs.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </div>
-        </Section>
+        </Section> */}
 
         <Section id="experience" title="Experience">
           <ExperienceTabs

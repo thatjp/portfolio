@@ -17,6 +17,11 @@ type ExperienceListProps = {
   listPhase?: ExperienceListPhase;
 };
 
+const companyNameClass =
+  "text-lg font-medium text-zinc-900 dark:text-zinc-100";
+
+const companyLinkClass = `${companyNameClass} inline-block w-fit max-w-full self-start text-left underline decoration-zinc-300 underline-offset-2 transition-colors hover:decoration-zinc-500 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:decoration-zinc-600 dark:hover:decoration-zinc-400 dark:focus-visible:outline-zinc-500`;
+
 export function ExperienceList({
   items,
   itemIdPrefix = "exp",
@@ -32,13 +37,6 @@ export function ExperienceList({
   return (
     <Accordion className={accordionClass}>
       {items.map((job, index) => {
-        const primaryIsCompany = job.freelance === true;
-        const primaryLabel = primaryIsCompany ? job.company : job.role;
-        const secondaryLabel = primaryIsCompany ? job.role : job.company;
-        const primaryIsLink =
-          primaryIsCompany && job.company && job.companyUrl;
-        const showPeriodRow = job.company || primaryIsCompany;
-
         const staggerDelayMs =
           listPhase === "exiting"
             ? (items.length - 1 - index) * EXPERIENCE_ANIM.exitStaggerMs
@@ -47,85 +45,67 @@ export function ExperienceList({
               : undefined;
 
         return (
-        <AccordionItem
-          key={`${job.role}-${job.period}`}
-          itemId={`${itemIdPrefix}-${index}`}
-          className="experience-accordion-item"
-          style={
-            staggerDelayMs != null
-              ? { animationDelay: `${staggerDelayMs}ms` }
-              : undefined
-          }
-          trigger={
-            <span className="flex w-full min-w-0 flex-col gap-1">
-              <span className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
-                {primaryIsLink ? (
-                  <a
-                    href={job.companyUrl}
-                    className="shrink-0 text-left font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-2 transition-colors hover:decoration-zinc-500 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-zinc-100 dark:decoration-zinc-600 dark:hover:decoration-zinc-400 dark:focus-visible:outline-zinc-500"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {primaryLabel}
-                  </a>
-                ) : (
-                  <span className="font-medium text-zinc-900 dark:text-zinc-100">
-                    {primaryLabel ?? job.period}
-                  </span>
-                )}
-                {secondaryLabel ? (
-                  primaryIsCompany ? (
-                    <span className="shrink-0 text-left text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                      {secondaryLabel}
-                    </span>
-                  ) : job.companyUrl ? (
+          <AccordionItem
+            key={`${job.role}-${job.period}`}
+            itemId={`${itemIdPrefix}-${index}`}
+            className="experience-accordion-item"
+            style={
+              staggerDelayMs != null
+                ? { animationDelay: `${staggerDelayMs}ms` }
+                : undefined
+            }
+            trigger={
+              <span className="flex w-full min-w-0 flex-col gap-0.5">
+                {job.company ? (
+                  job.companyUrl ? (
                     <a
                       href={job.companyUrl}
-                      className="shrink-0 text-left text-sm font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-2 transition-colors hover:decoration-zinc-500 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-zinc-100 dark:decoration-zinc-600 dark:hover:decoration-zinc-400 dark:focus-visible:outline-zinc-500"
+                      className={companyLinkClass}
                       rel="noopener noreferrer"
                       target="_blank"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      {secondaryLabel}
+                      {job.company}
                     </a>
                   ) : (
-                    <span className="shrink-0 text-left text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                      {secondaryLabel}
-                    </span>
+                    <span className={companyNameClass}>{job.company}</span>
                   )
-                ) : !secondaryLabel && !primaryIsCompany ? (
-                  <span className="shrink-0 text-sm text-zinc-500 dark:text-zinc-500">
-                    {job.period}
+                ) : (
+                  <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                    {job.role}
+                  </span>
+                )}
+                {job.company ? (
+                  <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                    {job.role}
                   </span>
                 ) : null}
-              </span>
-              {showPeriodRow ? (
                 <span className="text-sm text-zinc-500 dark:text-zinc-500">
                   {job.period}
                 </span>
-              ) : null}
-            </span>
-          }
-        >
-          {job.tags && job.tags.length > 0 ? (
-            <PillList
-              className="mt-1"
-              items={job.tags}
-              aria-label={`Tags for ${job.role}`}
-            />
-          ) : null}
-          {job.summary ? (
-            <p className="mt-3 text-zinc-700 dark:text-zinc-300">
-              {job.summary}
-            </p>
-          ) : null}
-          {job.highlights && job.highlights.length > 0 ? (
-            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-400">
-              {job.highlights.map((h) => (
-                <li key={h}>{h}</li>
-              ))}
-            </ul>
-          ) : null}
-        </AccordionItem>
+              </span>
+            }
+          >
+            {job.tags && job.tags.length > 0 ? (
+              <PillList
+                className="mt-1"
+                items={job.tags}
+                aria-label={`Tags for ${job.role}`}
+              />
+            ) : null}
+            {job.summary ? (
+              <p className="mt-3 text-zinc-700 dark:text-zinc-300">
+                {job.summary}
+              </p>
+            ) : null}
+            {job.highlights && job.highlights.length > 0 ? (
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-400">
+                {job.highlights.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+            ) : null}
+          </AccordionItem>
         );
       })}
     </Accordion>
